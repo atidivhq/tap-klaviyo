@@ -2,9 +2,13 @@
 
 from __future__ import annotations
 
+import typing as t
 from pathlib import Path
 
 from tap_klaviyo.client import KlaviyoStream
+
+if t.TYPE_CHECKING:
+    from urllib.parse import ParseResult
 
 SCHEMAS_DIR = Path(__file__).parent / Path("./schemas")
 
@@ -27,10 +31,10 @@ class EventsStream(KlaviyoStream):
         return row
 
 
-class CampaignsStream(KlaviyoStream):
-    """Define custom stream."""
+class EmailCampaignsStream(KlaviyoStream):
+    """Define Email Campaign stream."""
 
-    name = "campaigns"
+    name = "emailcampaigns"
     path = "/campaigns"
     primary_keys = ["id"]
     replication_key = "updated_at"
@@ -43,6 +47,52 @@ class CampaignsStream(KlaviyoStream):
     ) -> dict | None:
         row["updated_at"] = row["attributes"]["updated_at"]
         return row
+
+    def get_url_params(
+        self,
+        context: dict | None,
+        next_page_token: ParseResult | None,
+    ) -> dict[str, t.Any]:
+        params: dict[str, t.Any] = {}
+        params = super().get_url_params(
+            context=context, next_page_token=next_page_token
+        )
+
+        # adding email level filter to campaign
+        params["filter"] += ",equals(messages.channel,'email')"
+        return params
+
+
+class SMSCampaignsStream(KlaviyoStream):
+    """Define SMS Campaign stream."""
+
+    name = "smscampaigns"
+    path = "/campaigns"
+    primary_keys = ["id"]
+    replication_key = "updated_at"
+    schema_filepath = SCHEMAS_DIR / "campaigns.json"
+
+    def post_process(
+        self,
+        row: dict,
+        context: dict | None = None,  # noqa: ARG002
+    ) -> dict | None:
+        row["updated_at"] = row["attributes"]["updated_at"]
+        return row
+
+    def get_url_params(
+        self,
+        context: dict | None,
+        next_page_token: ParseResult | None,
+    ) -> dict[str, t.Any]:
+        params: dict[str, t.Any] = {}
+        params = super().get_url_params(
+            context=context, next_page_token=next_page_token
+        )
+
+        # adding email level filter to campaign
+        params["filter"] += ",equals(messages.channel,'sms')"
+        return params
 
 
 class ProfilesStream(KlaviyoStream):
