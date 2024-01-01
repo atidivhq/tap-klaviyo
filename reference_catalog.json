@@ -1,0 +1,1562 @@
+{
+  "streams": [
+    {
+      "tap_stream_id": "emailcampaigns",
+      "replication_key": "updated_at",
+      "replication_method": "INCREMENTAL",
+      "key_properties": [
+        "id"
+      ],
+      "schema": {
+        "properties": {
+          "id": {
+            "description": "The campaign ID",
+            "type": [
+              "string",
+              "null"
+            ]
+          },
+          "updated_at": {
+            "description": "The datetime when the campaign was last updated by a user or the system",
+            "format": "date-time",
+            "type": [
+              "string",
+              "null"
+            ]
+          },
+          "attributes": {
+            "properties": {
+              "name": {
+                "description": "The campaign name",
+                "type": [
+                  "string",
+                  "null"
+                ]
+              },
+              "type": {
+                "description": "The campaign type",
+                "type": [
+                  "string",
+                  "null"
+                ]
+              },
+              "status": {
+                "description": "The current status of the campaign",
+                "type": [
+                  "string",
+                  "null"
+                ]
+              },
+              "archived": {
+                "description": "Whether the campaign has been archived or not",
+                "type": [
+                  "boolean",
+                  "null"
+                ]
+              },
+              "channel": {
+                "description": "The type of campaign",
+                "type": [
+                  "string",
+                  "null"
+                ]
+              },
+              "message": {
+                "description": "The id of the message associated with the campaign",
+                "type": [
+                  "string",
+                  "null"
+                ]
+              },
+              "created_at": {
+                "description": "The datetime when the campaign was created",
+                "format": "date-time",
+                "type": [
+                  "string",
+                  "null"
+                ]
+              },
+              "scheduled_at": {
+                "description": "The datetime when the campaign was scheduled for future sending",
+                "format": "date-time",
+                "type": [
+                  "string",
+                  "null"
+                ]
+              },
+              "updated_at": {
+                "description": "The datetime when the campaign was last updated by a user or the system",
+                "format": "date-time",
+                "type": [
+                  "string",
+                  "null"
+                ]
+              },
+              "send_time": {
+                "description": "The datetime when the campaign will be / was sent or None if not yet scheduled by a send_job",
+                "type": [
+                  "string",
+                  "null"
+                ]
+              }
+            },
+            "type": [
+              "object",
+              "null"
+            ]
+          }
+        }
+      },
+      "stream": "emailcampaigns",
+      "metadata": [
+        {
+          "breadcrumb": [
+            "properties",
+            "id"
+          ],
+          "metadata": {
+            "inclusion": "automatic"
+          }
+        },
+        {
+          "breadcrumb": [
+            "properties",
+            "updated_at"
+          ],
+          "metadata": {
+            "inclusion": "automatic"
+          }
+        },
+        {
+          "breadcrumb": [
+            "properties",
+            "attributes"
+          ],
+          "metadata": {
+            "inclusion": "available"
+          }
+        },
+        {
+          "breadcrumb": [],
+          "metadata": {
+            "inclusion": "available",
+            "selected": false,
+            "table-key-properties": [
+              "id"
+            ],
+            "valid-replication-keys": [
+              "updated_at"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "tap_stream_id": "events",
+      "replication_key": "datetime",
+      "replication_method": "INCREMENTAL",
+      "key_properties": [
+        "id"
+      ],
+      "schema": {
+        "properties": {
+          "name": {
+            "type": [
+              "string",
+              "null"
+            ]
+          },
+          "id": {
+            "description": "The event ID",
+            "type": [
+              "string",
+              "null"
+            ]
+          },
+          "type": {
+            "description": "The event type",
+            "type": [
+              "string",
+              "null"
+            ]
+          },
+          "datetime": {
+            "description": "Event timestamp in ISO 8601 format (YYYY-MM-DDTHH:MM:SS.mmmmmm)",
+            "format": "date-time",
+            "type": [
+              "string",
+              "null"
+            ]
+          },
+          "attributes": {
+            "properties": {
+              "metric_id": {
+                "description": "The metric ID",
+                "type": [
+                  "string",
+                  "null"
+                ]
+              },
+              "profile_id": {
+                "description": "Profile ID of the associated profile, if available",
+                "type": [
+                  "string",
+                  "null"
+                ]
+              },
+              "timestamp": {
+                "description": "Event timestamp in seconds",
+                "type": [
+                  "integer",
+                  "null"
+                ]
+              },
+              "event_properties": {
+                "description": "Event properties, can include attribution data, identifiers and extra properties",
+                "type": [
+                  "null",
+                  "object"
+                ]
+              },
+              "datetime": {
+                "description": "Event timestamp in ISO 8601 format (YYYY-MM-DDTHH:MM:SS.mmmmmm)",
+                "format": "date-time",
+                "type": [
+                  "string",
+                  "null"
+                ]
+              },
+              "uuid": {
+                "description": "A unique identifier for the event, this can be used as a cursor in pagination",
+                "type": [
+                  "string",
+                  "null"
+                ]
+              }
+            },
+            "type": [
+              "object",
+              "null"
+            ]
+          }
+        }
+      },
+      "stream": "events",
+      "metadata": [
+        {
+          "breadcrumb": [
+            "properties",
+            "name"
+          ],
+          "metadata": {
+            "inclusion": "available"
+          }
+        },
+        {
+          "breadcrumb": [
+            "properties",
+            "id"
+          ],
+          "metadata": {
+            "inclusion": "automatic"
+          }
+        },
+        {
+          "breadcrumb": [
+            "properties",
+            "type"
+          ],
+          "metadata": {
+            "inclusion": "available"
+          }
+        },
+        {
+          "breadcrumb": [
+            "properties",
+            "datetime"
+          ],
+          "metadata": {
+            "inclusion": "automatic"
+          }
+        },
+        {
+          "breadcrumb": [
+            "properties",
+            "attributes"
+          ],
+          "metadata": {
+            "inclusion": "available"
+          }
+        },
+        {
+          "breadcrumb": [],
+          "metadata": {
+            "inclusion": "available",
+            "selected": false,
+            "table-key-properties": [
+              "id"
+            ],
+            "valid-replication-keys": [
+              "datetime"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "tap_stream_id": "flows",
+      "replication_method": "FULL_TABLE",
+      "key_properties": [
+        "id"
+      ],
+      "schema": {
+        "properties": {
+          "id": {
+            "type": [
+              "string"
+            ]
+          },
+          "type": {
+            "type": [
+              "string"
+            ]
+          },
+          "attributes": {
+            "properties": {
+              "name": {
+                "type": [
+                  "string",
+                  "null"
+                ]
+              },
+              "status": {
+                "type": [
+                  "string",
+                  "null"
+                ]
+              },
+              "archived": {
+                "type": [
+                  "boolean",
+                  "null"
+                ]
+              },
+              "created": {
+                "format": "date-time",
+                "type": [
+                  "string",
+                  "null"
+                ]
+              },
+              "updated": {
+                "format": "date-time",
+                "type": [
+                  "string",
+                  "null"
+                ]
+              },
+              "trigger_type": {
+                "type": [
+                  "string",
+                  "null"
+                ]
+              }
+            },
+            "type": "object"
+          }
+        },
+        "type": "object",
+        "required": [
+          "id",
+          "type",
+          "attributes"
+        ]
+      },
+      "stream": "flows",
+      "metadata": [
+        {
+          "breadcrumb": [
+            "properties",
+            "id"
+          ],
+          "metadata": {
+            "inclusion": "automatic"
+          }
+        },
+        {
+          "breadcrumb": [
+            "properties",
+            "type"
+          ],
+          "metadata": {
+            "inclusion": "available"
+          }
+        },
+        {
+          "breadcrumb": [
+            "properties",
+            "attributes"
+          ],
+          "metadata": {
+            "inclusion": "available"
+          }
+        },
+        {
+          "breadcrumb": [],
+          "metadata": {
+            "inclusion": "available",
+            "selected": false,
+            "table-key-properties": [
+              "id"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "tap_stream_id": "listperson",
+      "replication_method": "FULL_TABLE",
+      "key_properties": [
+        "id"
+      ],
+      "schema": {
+        "properties": {
+          "list_id": {
+            "type": [
+              "string"
+            ]
+          },
+          "id": {
+            "type": [
+              "string"
+            ]
+          },
+          "type": {
+            "type": [
+              "string"
+            ]
+          }
+        }
+      },
+      "stream": "listperson",
+      "metadata": [
+        {
+          "breadcrumb": [
+            "properties",
+            "list_id"
+          ],
+          "metadata": {
+            "inclusion": "available"
+          }
+        },
+        {
+          "breadcrumb": [
+            "properties",
+            "id"
+          ],
+          "metadata": {
+            "inclusion": "automatic"
+          }
+        },
+        {
+          "breadcrumb": [
+            "properties",
+            "type"
+          ],
+          "metadata": {
+            "inclusion": "available"
+          }
+        },
+        {
+          "breadcrumb": [],
+          "metadata": {
+            "inclusion": "available",
+            "selected": false,
+            "table-key-properties": [
+              "id"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "tap_stream_id": "lists",
+      "replication_key": "updated",
+      "replication_method": "INCREMENTAL",
+      "key_properties": [
+        "id"
+      ],
+      "schema": {
+        "properties": {
+          "id": {
+            "description": "Primary key that uniquely identifies this list. Generated by Klaviyo.",
+            "type": [
+              "string",
+              "null"
+            ]
+          },
+          "updated": {
+            "description": "Date and time when the list was last updated, in ISO 8601 format (YYYY-MM-DDTHH:MM:SS.mmmmmm)",
+            "format": "date-time",
+            "type": [
+              "string",
+              "null"
+            ]
+          },
+          "attributes": {
+            "properties": {
+              "name": {
+                "description": "A helpful name to label the list",
+                "type": [
+                  "string",
+                  "null"
+                ]
+              },
+              "created": {
+                "description": "Date and time when the list was created, in ISO 8601 format (YYYY-MM-DDTHH:MM:SS.mmmmmm)",
+                "format": "date-time",
+                "type": [
+                  "string",
+                  "null"
+                ]
+              },
+              "updated": {
+                "description": "Date and time when the list was last updated, in ISO 8601 format (YYYY-MM-DDTHH:MM:SS.mmmmmm)",
+                "format": "date-time",
+                "type": [
+                  "string",
+                  "null"
+                ]
+              }
+            },
+            "type": [
+              "object",
+              "null"
+            ]
+          }
+        }
+      },
+      "stream": "lists",
+      "metadata": [
+        {
+          "breadcrumb": [
+            "properties",
+            "id"
+          ],
+          "metadata": {
+            "inclusion": "automatic"
+          }
+        },
+        {
+          "breadcrumb": [
+            "properties",
+            "updated"
+          ],
+          "metadata": {
+            "inclusion": "automatic"
+          }
+        },
+        {
+          "breadcrumb": [
+            "properties",
+            "attributes"
+          ],
+          "metadata": {
+            "inclusion": "available"
+          }
+        },
+        {
+          "breadcrumb": [],
+          "metadata": {
+            "inclusion": "available",
+            "selected": false,
+            "table-key-properties": [
+              "id"
+            ],
+            "valid-replication-keys": [
+              "updated"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "tap_stream_id": "metrics",
+      "replication_method": "FULL_TABLE",
+      "key_properties": [
+        "id"
+      ],
+      "schema": {
+        "properties": {
+          "id": {
+            "description": "The metric ID",
+            "type": [
+              "string",
+              "null"
+            ]
+          },
+          "updated": {
+            "description": "Timestamp when the metric was updated",
+            "format": "date-time",
+            "type": [
+              "string",
+              "null"
+            ]
+          },
+          "attributes": {
+            "properties": {
+              "name": {
+                "description": "The name of the metric",
+                "type": [
+                  "string",
+                  "null"
+                ]
+              },
+              "created": {
+                "description": "Creation time in ISO 8601 format (YYYY-MM-DDTHH:MM:SS.mmmmmm)",
+                "format": "date-time",
+                "type": [
+                  "string",
+                  "null"
+                ]
+              },
+              "updated": {
+                "description": "Creation time in ISO 8601 format (YYYY-MM-DDTHH:MM:SS.mmmmmm)",
+                "format": "date-time",
+                "type": [
+                  "string",
+                  "null"
+                ]
+              },
+              "integration": {
+                "properties": {
+                  "id": {
+                    "description": "The id of the integration associated with the event",
+                    "type": [
+                      "string",
+                      "null"
+                    ]
+                  },
+                  "name": {
+                    "description": "The name of the integration",
+                    "type": [
+                      "string",
+                      "null"
+                    ]
+                  },
+                  "category": {
+                    "description": "The category of the integration",
+                    "type": [
+                      "string",
+                      "null"
+                    ]
+                  }
+                },
+                "type": [
+                  "object",
+                  "null"
+                ]
+              }
+            },
+            "type": [
+              "object",
+              "null"
+            ]
+          }
+        }
+      },
+      "stream": "metrics",
+      "metadata": [
+        {
+          "breadcrumb": [
+            "properties",
+            "id"
+          ],
+          "metadata": {
+            "inclusion": "automatic"
+          }
+        },
+        {
+          "breadcrumb": [
+            "properties",
+            "updated"
+          ],
+          "metadata": {
+            "inclusion": "available"
+          }
+        },
+        {
+          "breadcrumb": [
+            "properties",
+            "attributes"
+          ],
+          "metadata": {
+            "inclusion": "available"
+          }
+        },
+        {
+          "breadcrumb": [],
+          "metadata": {
+            "inclusion": "available",
+            "selected": false,
+            "table-key-properties": [
+              "id"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "tap_stream_id": "profiles",
+      "replication_key": "updated",
+      "replication_method": "INCREMENTAL",
+      "key_properties": [
+        "id"
+      ],
+      "schema": {
+        "properties": {
+          "type": {
+            "type": [
+              "string"
+            ]
+          },
+          "id": {
+            "description": "Primary key that uniquely identifies this profile. Generated by Klaviyo.",
+            "type": [
+              "string"
+            ]
+          },
+          "updated": {
+            "description": "Date and time when the profile was last updated, in ISO 8601 format (YYYY-MM-DDTHH:MM:SS.mmmmmm)",
+            "format": "date-time",
+            "type": [
+              "string",
+              "null"
+            ]
+          },
+          "attributes": {
+            "properties": {
+              "email": {
+                "description": "Individual's email address",
+                "type": [
+                  "string",
+                  "null"
+                ]
+              },
+              "phone_number": {
+                "description": "Individual's phone number in E.164 format",
+                "type": [
+                  "string",
+                  "null"
+                ]
+              },
+              "external_id": {
+                "description": "A unique identifier used by customers to associate Klaviyo profiles with profiles in an external system, such as a point-of-sale system. Format varies based on the external system.",
+                "type": [
+                  "string",
+                  "null"
+                ]
+              },
+              "first_name": {
+                "description": "Individual's first name",
+                "type": [
+                  "string",
+                  "null"
+                ]
+              },
+              "last_name": {
+                "description": "Individual's last name",
+                "type": [
+                  "string",
+                  "null"
+                ]
+              },
+              "organization": {
+                "description": "Name of the company or organization within the company for whom the individual works",
+                "type": [
+                  "string",
+                  "null"
+                ]
+              },
+              "title": {
+                "description": "Individual's job title",
+                "type": [
+                  "string",
+                  "null"
+                ]
+              },
+              "image": {
+                "description": "URL pointing to the location of a profile image",
+                "type": [
+                  "string",
+                  "null"
+                ]
+              },
+              "created": {
+                "description": "Date and time when the profile was created, in ISO 8601 format (YYYY-MM-DDTHH:MM:SS.mmmmmm)",
+                "format": "date-time",
+                "type": [
+                  "string",
+                  "null"
+                ]
+              },
+              "updated": {
+                "description": "Date and time when the profile was last updated, in ISO 8601 format (YYYY-MM-DDTHH:MM:SS.mmmmmm)",
+                "format": "date-time",
+                "type": [
+                  "string",
+                  "null"
+                ]
+              },
+              "last_event_date": {
+                "description": "Date and time of the most recent event the triggered an update to the profile, in ISO 8601 format (YYYY-MM-DDTHH:MM:SS.mmmmmm)",
+                "format": "date-time",
+                "type": [
+                  "string",
+                  "null"
+                ]
+              },
+              "location": {
+                "properties": {
+                  "address1": {
+                    "description": "First line of street address",
+                    "type": [
+                      "string",
+                      "null"
+                    ]
+                  },
+                  "address2": {
+                    "description": "Second line of street address",
+                    "type": [
+                      "string",
+                      "null"
+                    ]
+                  },
+                  "city": {
+                    "description": "City name",
+                    "type": [
+                      "string",
+                      "null"
+                    ]
+                  },
+                  "country": {
+                    "description": "Country name",
+                    "type": [
+                      "string",
+                      "null"
+                    ]
+                  },
+                  "latitude": {
+                    "description": "Latitude coordinate. We recommend providing a precision of four decimal places.",
+                    "type": [
+                      "string",
+                      "null"
+                    ]
+                  },
+                  "longitude": {
+                    "description": "Longitude coordinate. We recommend providing a precision of four decimal places.",
+                    "type": [
+                      "string",
+                      "null"
+                    ]
+                  },
+                  "region": {
+                    "description": "Region within a country, such as state or province",
+                    "type": [
+                      "string",
+                      "null"
+                    ]
+                  },
+                  "zip": {
+                    "description": "Zip code",
+                    "type": [
+                      "string",
+                      "null"
+                    ]
+                  },
+                  "timezone": {
+                    "description": "Time zone name. We recommend using time zones from the IANA Time Zone Database.",
+                    "type": [
+                      "string",
+                      "null"
+                    ]
+                  }
+                },
+                "type": [
+                  "object",
+                  "null"
+                ]
+              },
+              "properties": {
+                "description": "An object containing key/value pairs for any custom properties assigned to this profile",
+                "additionalProperties": false,
+                "patternProperties": {
+                  "^.*$": {
+                    "anyOf": [
+                      {
+                        "type": "object"
+                      },
+                      {
+                        "type": "string"
+                      },
+                      {
+                        "type": "number"
+                      },
+                      {
+                        "type": "boolean"
+                      },
+                      {
+                        "type": "null"
+                      }
+                    ]
+                  }
+                }
+              },
+              "subscriptions": {
+                "properties": {
+                  "email": {
+                    "properties": {
+                      "marketing": {
+                        "properties": {
+                          "consent": {
+                            "description": "The consent status for email marketing.",
+                            "type": [
+                              "string",
+                              "null"
+                            ]
+                          },
+                          "timestamp": {
+                            "description": "The timestamp when consent record or updated for email marketing, in ISO 8601 format (YYYY-MM-DDTHH:MM:SS.mmmmmm).",
+                            "format": "date-time",
+                            "type": [
+                              "string",
+                              "null"
+                            ]
+                          },
+                          "method": {
+                            "description": "The method by which the profile was subscribed to email marketing.",
+                            "type": [
+                              "string",
+                              "null"
+                            ]
+                          },
+                          "method_detail": {
+                            "description": "Additional details about the method by which the profile was subscribed to SMS marketing. This may be empty if no details were provided.",
+                            "type": [
+                              "string",
+                              "null"
+                            ]
+                          },
+                          "custom_method_detail": {
+                            "description": "Additional detail provided by the caller when the profile was subscribed. This may be empty if no details were provided.",
+                            "type": [
+                              "string",
+                              "null"
+                            ]
+                          },
+                          "double_optin": {
+                            "description": "Whether the profile was subscribed to email marketing using a double opt-in.",
+                            "type": [
+                              "boolean",
+                              "null"
+                            ]
+                          },
+                          "suppressions": {
+                            "items": {
+                              "properties": {
+                                "reason": {
+                                  "description": "The reason the profile was suppressed from the list.",
+                                  "type": [
+                                    "string",
+                                    "null"
+                                  ]
+                                },
+                                "timestamp": {
+                                  "description": "The timestamp when the profile was suppressed from the list, in ISO 8601 format (YYYY-MM-DDTHH:MM:SS.mmmmmm).",
+                                  "type": [
+                                    "string",
+                                    "null"
+                                  ]
+                                }
+                              },
+                              "type": "object"
+                            },
+                            "description": "The global email marketing suppressions for this profile.",
+                            "type": [
+                              "array",
+                              "null"
+                            ]
+                          },
+                          "list_suppressions": {
+                            "items": {
+                              "properties": {
+                                "list_id": {
+                                  "description": "The ID of list to which the suppression applies.",
+                                  "type": [
+                                    "string",
+                                    "null"
+                                  ]
+                                },
+                                "reason": {
+                                  "description": "The reason the profile was suppressed from the list.",
+                                  "type": [
+                                    "string",
+                                    "null"
+                                  ]
+                                },
+                                "timestamp": {
+                                  "description": "The timestamp when the profile was suppressed from the list, in ISO 8601 format (YYYY-MM-DDTHH:MM:SS.mmmmmm).",
+                                  "type": [
+                                    "string",
+                                    "null"
+                                  ]
+                                }
+                              },
+                              "type": "object"
+                            },
+                            "description": "The list suppressions for this profile.",
+                            "type": [
+                              "array",
+                              "null"
+                            ]
+                          }
+                        },
+                        "description": "The email marketing subscription.",
+                        "type": [
+                          "object",
+                          "null"
+                        ]
+                      }
+                    },
+                    "description": "The email channel subscription.",
+                    "type": [
+                      "object",
+                      "null"
+                    ]
+                  },
+                  "sms": {
+                    "properties": {
+                      "marketing": {
+                        "properties": {
+                          "consent": {
+                            "description": "The consent status for SMS marketing.",
+                            "type": [
+                              "string",
+                              "null"
+                            ]
+                          },
+                          "timestamp": {
+                            "description": "The timestamp when consent record or updated for SMS marketing, in ISO 8601 format (YYYY-MM-DDTHH:MM:SS.mmmmmm).",
+                            "format": "date-time",
+                            "type": [
+                              "string",
+                              "null"
+                            ]
+                          },
+                          "method": {
+                            "description": "The method by which the profile was subscribed to SMS marketing.",
+                            "type": [
+                              "string",
+                              "null"
+                            ]
+                          },
+                          "method_detail": {
+                            "description": "Additional details about the method which the profile was subscribed to SMS marketing. This may be empty if no details were provided.",
+                            "type": [
+                              "string",
+                              "null"
+                            ]
+                          }
+                        },
+                        "description": "The SMS marketing subscription.",
+                        "type": [
+                          "object",
+                          "null"
+                        ]
+                      }
+                    },
+                    "description": "The SMS channel subscription.",
+                    "type": [
+                      "object",
+                      "null"
+                    ]
+                  }
+                },
+                "type": [
+                  "object",
+                  "null"
+                ]
+              }
+            },
+            "type": [
+              "object",
+              "null"
+            ]
+          }
+        },
+        "type": "object",
+        "required": [
+          "type",
+          "id"
+        ]
+      },
+      "stream": "profiles",
+      "metadata": [
+        {
+          "breadcrumb": [
+            "properties",
+            "type"
+          ],
+          "metadata": {
+            "inclusion": "available"
+          }
+        },
+        {
+          "breadcrumb": [
+            "properties",
+            "id"
+          ],
+          "metadata": {
+            "inclusion": "automatic"
+          }
+        },
+        {
+          "breadcrumb": [
+            "properties",
+            "updated"
+          ],
+          "metadata": {
+            "inclusion": "automatic"
+          }
+        },
+        {
+          "breadcrumb": [
+            "properties",
+            "attributes"
+          ],
+          "metadata": {
+            "inclusion": "available"
+          }
+        },
+        {
+          "breadcrumb": [],
+          "metadata": {
+            "inclusion": "available",
+            "selected": false,
+            "table-key-properties": [
+              "id"
+            ],
+            "valid-replication-keys": [
+              "updated"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "tap_stream_id": "segments",
+      "replication_key": "updated",
+      "replication_method": "INCREMENTAL",
+      "key_properties": [
+        "id"
+      ],
+      "schema": {
+        "properties": {
+          "id": {
+            "description": "The ID of segment.",
+            "type": [
+              "string",
+              "null"
+            ]
+          },
+          "type": {
+            "type": [
+              "string",
+              "null"
+            ]
+          },
+          "updated": {
+            "description": "Date and time when the list was last updated, in ISO 8601 format (YYYY-MM-DDTHH:MM:SS.mmmmmm)",
+            "format": "date-time",
+            "type": [
+              "string",
+              "null"
+            ]
+          },
+          "attributes": {
+            "properties": {
+              "name": {
+                "description": "The name of the segment.",
+                "type": [
+                  "string"
+                ]
+              },
+              "created": {
+                "description": "Date and time when the segment was created, in ISO 8601 format (YYYY-MM-DDTHH:MM:SS.mmmmmm)",
+                "format": "date-time",
+                "type": [
+                  "string",
+                  "null"
+                ]
+              },
+              "updated": {
+                "description": "Date and time when the segment was last updated, in ISO 8601 format (YYYY-MM-DDTHH:MM:SS.mmmmmm)",
+                "format": "date-time",
+                "type": [
+                  "string",
+                  "null"
+                ]
+              }
+            },
+            "type": [
+              "object",
+              "null"
+            ]
+          }
+        }
+      },
+      "stream": "segments",
+      "metadata": [
+        {
+          "breadcrumb": [
+            "properties",
+            "id"
+          ],
+          "metadata": {
+            "inclusion": "automatic"
+          }
+        },
+        {
+          "breadcrumb": [
+            "properties",
+            "type"
+          ],
+          "metadata": {
+            "inclusion": "available"
+          }
+        },
+        {
+          "breadcrumb": [
+            "properties",
+            "updated"
+          ],
+          "metadata": {
+            "inclusion": "automatic"
+          }
+        },
+        {
+          "breadcrumb": [
+            "properties",
+            "attributes"
+          ],
+          "metadata": {
+            "inclusion": "available"
+          }
+        },
+        {
+          "breadcrumb": [],
+          "metadata": {
+            "inclusion": "available",
+            "selected": false,
+            "table-key-properties": [
+              "id"
+            ],
+            "valid-replication-keys": [
+              "updated"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "tap_stream_id": "smscampaigns",
+      "replication_key": "updated_at",
+      "replication_method": "INCREMENTAL",
+      "key_properties": [
+        "id"
+      ],
+      "schema": {
+        "properties": {
+          "id": {
+            "description": "The campaign ID",
+            "type": [
+              "string",
+              "null"
+            ]
+          },
+          "updated_at": {
+            "description": "The datetime when the campaign was last updated by a user or the system",
+            "format": "date-time",
+            "type": [
+              "string",
+              "null"
+            ]
+          },
+          "attributes": {
+            "properties": {
+              "name": {
+                "description": "The campaign name",
+                "type": [
+                  "string",
+                  "null"
+                ]
+              },
+              "type": {
+                "description": "The campaign type",
+                "type": [
+                  "string",
+                  "null"
+                ]
+              },
+              "status": {
+                "description": "The current status of the campaign",
+                "type": [
+                  "string",
+                  "null"
+                ]
+              },
+              "archived": {
+                "description": "Whether the campaign has been archived or not",
+                "type": [
+                  "boolean",
+                  "null"
+                ]
+              },
+              "channel": {
+                "description": "The type of campaign",
+                "type": [
+                  "string",
+                  "null"
+                ]
+              },
+              "message": {
+                "description": "The id of the message associated with the campaign",
+                "type": [
+                  "string",
+                  "null"
+                ]
+              },
+              "created_at": {
+                "description": "The datetime when the campaign was created",
+                "format": "date-time",
+                "type": [
+                  "string",
+                  "null"
+                ]
+              },
+              "scheduled_at": {
+                "description": "The datetime when the campaign was scheduled for future sending",
+                "format": "date-time",
+                "type": [
+                  "string",
+                  "null"
+                ]
+              },
+              "updated_at": {
+                "description": "The datetime when the campaign was last updated by a user or the system",
+                "format": "date-time",
+                "type": [
+                  "string",
+                  "null"
+                ]
+              },
+              "send_time": {
+                "description": "The datetime when the campaign will be / was sent or None if not yet scheduled by a send_job",
+                "type": [
+                  "string",
+                  "null"
+                ]
+              }
+            },
+            "type": [
+              "object",
+              "null"
+            ]
+          }
+        }
+      },
+      "stream": "smscampaigns",
+      "metadata": [
+        {
+          "breadcrumb": [
+            "properties",
+            "id"
+          ],
+          "metadata": {
+            "inclusion": "automatic"
+          }
+        },
+        {
+          "breadcrumb": [
+            "properties",
+            "updated_at"
+          ],
+          "metadata": {
+            "inclusion": "automatic"
+          }
+        },
+        {
+          "breadcrumb": [
+            "properties",
+            "attributes"
+          ],
+          "metadata": {
+            "inclusion": "available"
+          }
+        },
+        {
+          "breadcrumb": [],
+          "metadata": {
+            "inclusion": "available",
+            "selected": false,
+            "table-key-properties": [
+              "id"
+            ],
+            "valid-replication-keys": [
+              "updated_at"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "tap_stream_id": "templates",
+      "replication_key": "updated",
+      "replication_method": "INCREMENTAL",
+      "key_properties": [
+        "id"
+      ],
+      "schema": {
+        "properties": {
+          "id": {
+            "description": "The ID of template.",
+            "type": [
+              "string",
+              "null"
+            ]
+          },
+          "type": {
+            "type": [
+              "string",
+              "null"
+            ]
+          },
+          "updated": {
+            "description": "Date and time when the list was last updated, in ISO 8601 format (YYYY-MM-DDTHH:MM:SS.mmmmmm)",
+            "format": "date-time",
+            "type": [
+              "string",
+              "null"
+            ]
+          },
+          "attributes": {
+            "properties": {
+              "company_id": {
+                "description": "The ID of the company the template belongs to.",
+                "type": [
+                  "string"
+                ]
+              },
+              "name": {
+                "description": "The name of the template.",
+                "type": [
+                  "string"
+                ]
+              },
+              "editor_type": {
+                "type": [
+                  "string"
+                ]
+              },
+              "html": {
+                "description": "The rendered HTML of the template.",
+                "type": [
+                  "string"
+                ]
+              },
+              "text": {
+                "description": "The template plain_text.",
+                "type": [
+                  "string",
+                  "null"
+                ]
+              },
+              "created": {
+                "description": "Date and time when the template was created, in ISO 8601 format (YYYY-MM-DDTHH:MM:SS.mmmmmm)",
+                "format": "date-time",
+                "type": [
+                  "string",
+                  "null"
+                ]
+              },
+              "updated": {
+                "description": "Date and time when the template was last updated, in ISO 8601 format (YYYY-MM-DDTHH:MM:SS.mmmmmm)",
+                "format": "date-time",
+                "type": [
+                  "string",
+                  "null"
+                ]
+              }
+            },
+            "type": [
+              "object",
+              "null"
+            ]
+          }
+        }
+      },
+      "stream": "templates",
+      "metadata": [
+        {
+          "breadcrumb": [
+            "properties",
+            "id"
+          ],
+          "metadata": {
+            "inclusion": "automatic"
+          }
+        },
+        {
+          "breadcrumb": [
+            "properties",
+            "type"
+          ],
+          "metadata": {
+            "inclusion": "available"
+          }
+        },
+        {
+          "breadcrumb": [
+            "properties",
+            "updated"
+          ],
+          "metadata": {
+            "inclusion": "automatic"
+          }
+        },
+        {
+          "breadcrumb": [
+            "properties",
+            "attributes"
+          ],
+          "metadata": {
+            "inclusion": "available"
+          }
+        },
+        {
+          "breadcrumb": [],
+          "metadata": {
+            "inclusion": "available",
+            "selected": false,
+            "table-key-properties": [
+              "id"
+            ],
+            "valid-replication-keys": [
+              "updated"
+            ]
+          }
+        }
+      ]
+    }
+  ]
+}
