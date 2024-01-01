@@ -196,3 +196,21 @@ class TemplatesStream(KlaviyoStream):
     ) -> dict | None:
         row["updated"] = row["attributes"]["updated"]
         return row
+
+
+class SegmentsStream(KlaviyoStream):
+    """Define custom stream."""
+
+    name = "segments"
+    path = "/segments"
+    primary_keys = ["id"]
+    replication_key = "updated"
+    schema_filepath = SCHEMAS_DIR / "segment.json"
+
+    def post_process(
+        self,
+        row: dict,
+        context: dict | None = None,  # noqa: ARG002
+    ) -> dict | None:
+        row["updated"] = row["attributes"]["updated"]
+        return row

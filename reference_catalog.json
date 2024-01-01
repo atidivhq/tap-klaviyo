@@ -1154,6 +1154,121 @@
       ]
     },
     {
+      "tap_stream_id": "segments",
+      "replication_key": "updated",
+      "replication_method": "INCREMENTAL",
+      "key_properties": [
+        "id"
+      ],
+      "schema": {
+        "properties": {
+          "id": {
+            "description": "The ID of segment.",
+            "type": [
+              "string",
+              "null"
+            ]
+          },
+          "type": {
+            "type": [
+              "string",
+              "null"
+            ]
+          },
+          "updated": {
+            "description": "Date and time when the list was last updated, in ISO 8601 format (YYYY-MM-DDTHH:MM:SS.mmmmmm)",
+            "format": "date-time",
+            "type": [
+              "string",
+              "null"
+            ]
+          },
+          "attributes": {
+            "properties": {
+              "name": {
+                "description": "The name of the segment.",
+                "type": [
+                  "string"
+                ]
+              },
+              "created": {
+                "description": "Date and time when the segment was created, in ISO 8601 format (YYYY-MM-DDTHH:MM:SS.mmmmmm)",
+                "format": "date-time",
+                "type": [
+                  "string",
+                  "null"
+                ]
+              },
+              "updated": {
+                "description": "Date and time when the segment was last updated, in ISO 8601 format (YYYY-MM-DDTHH:MM:SS.mmmmmm)",
+                "format": "date-time",
+                "type": [
+                  "string",
+                  "null"
+                ]
+              }
+            },
+            "type": [
+              "object",
+              "null"
+            ]
+          }
+        }
+      },
+      "stream": "segments",
+      "metadata": [
+        {
+          "breadcrumb": [
+            "properties",
+            "id"
+          ],
+          "metadata": {
+            "inclusion": "automatic"
+          }
+        },
+        {
+          "breadcrumb": [
+            "properties",
+            "type"
+          ],
+          "metadata": {
+            "inclusion": "available"
+          }
+        },
+        {
+          "breadcrumb": [
+            "properties",
+            "updated"
+          ],
+          "metadata": {
+            "inclusion": "automatic"
+          }
+        },
+        {
+          "breadcrumb": [
+            "properties",
+            "attributes"
+          ],
+          "metadata": {
+            "inclusion": "available"
+          }
+        },
+        {
+          "breadcrumb": [],
+          "metadata": {
+            "inclusion": "available",
+            "selected": false,
+            "table-key-properties": [
+              "id"
+            ],
+            "valid-replication-keys": [
+              "updated"
+            ]
+          }
+        }
+      ]
+    },
+    {
       "tap_stream_id": "smscampaigns",
       "replication_key": "updated_at",
       "replication_method": "INCREMENTAL",

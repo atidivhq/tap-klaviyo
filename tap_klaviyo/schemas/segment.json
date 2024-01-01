@@ -1,0 +1,55 @@
+{
+    "properties": {
+        "id": {
+            "description": "The ID of segment.",
+            "type": [
+                "string",
+                "null"
+            ]
+        },
+        "type": {
+            "type": [
+                "string",
+                "null"
+            ]
+        },
+        "updated": {
+            "description": "Date and time when the list was last updated, in ISO 8601 format (YYYY-MM-DDTHH:MM:SS.mmmmmm)",
+            "format": "date-time",
+            "type": [
+                "string",
+                "null"
+            ]
+        },
+        "attributes": {
+            "properties": {
+                "name": {
+                    "description": "The name of the segment.",
+                    "type": [
+                        "string"
+                    ]
+                },
+                "created": {
+                    "description": "Date and time when the segment was created, in ISO 8601 format (YYYY-MM-DDTHH:MM:SS.mmmmmm)",
+                    "format": "date-time",
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                },
+                "updated": {
+                    "description": "Date and time when the segment was last updated, in ISO 8601 format (YYYY-MM-DDTHH:MM:SS.mmmmmm)",
+                    "format": "date-time",
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                }
+            },
+            "type": [
+                "object",
+                "null"
+            ]
+        }
+    }
+}
