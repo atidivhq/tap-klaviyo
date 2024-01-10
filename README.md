@@ -129,3 +129,21 @@ meltano elt tap-klaviyo target-jsonl
 
 See the [dev guide](https://sdk.meltano.com/en/latest/dev_guide.html) for more instructions on how to use the SDK to
 develop your own taps and targets.
+
+
+# Todo
+Below endpoints were tested for ingestion:
+- Email Campaign
+- Events
+- Flows
+- List
+- Metrics
+- Profile
+- Templates
+- Segment
+- ListPerson*
+
+Below endpoints were not tested due to unavailability of data:
+- SMS Campaign
+
+Check if the schema files match catalog files for all streams
