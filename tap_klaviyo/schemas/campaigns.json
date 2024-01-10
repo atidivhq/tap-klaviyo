@@ -7,6 +7,13 @@
                 "null"
             ]
         },
+        "type": {
+            "description": "The campaign type",
+            "type": [
+                "string",
+                "null"
+            ]
+        },
         "updated_at": {
             "description": "The datetime when the campaign was last updated by a user or the system",
             "format": "date-time",
@@ -44,30 +51,6 @@
                         "null"
                     ]
                 },
-                "audiences": {
-                    "description": "The audiences to be included and/or excluded from the campaign",
-                    "type": [
-                        "object"
-                    ]
-                },
-                "send_options": {
-                    "description": "Options to use when sending a campaign",
-                    "type": [
-                        "object"
-                    ]
-                },
-                "tracking_options": {
-                    "description": "The tracking options associated with the campaign",
-                    "type": [
-                        "object"
-                    ]
-                },
-                "send_strategy": {
-                    "description": "The send strategy the campaign will send with",
-                    "type": [
-                        "object"
-                    ]
-                },
                 "status": {
                     "description": "The current status of the campaign",
                     "type": [
@@ -82,17 +65,179 @@
                         "null"
                     ]
                 },
-                "channel": {
-                    "description": "The type of campaign",
+                "audiences": {
+                    "properties": {
+                        "included": {
+                            "items": {
+                                "type": [
+                                    "string",
+                                    "null"
+                                ]
+                            },
+                            "type": [
+                                "array",
+                                "null"
+                            ]
+                        },
+                        "excluded": {
+                            "items": {
+                                "type": [
+                                    "string",
+                                    "null"
+                                ]
+                            },
+                            "type": [
+                                "array",
+                                "null"
+                            ]
+                        }
+                    },
                     "type": [
-                        "string",
+                        "object",
                         "null"
                     ]
                 },
-                "message": {
-                    "description": "The id of the message associated with the campaign",
+                "send_options": {
+                    "properties": {
+                        "use_smart_sending": {
+                            "type": [
+                                "boolean",
+                                "null"
+                            ]
+                        }
+                    },
                     "type": [
-                        "string",
+                        "object",
+                        "null"
+                    ]
+                },
+                "tracking_options": {
+                    "properties": {
+                        "is_add_utm": {
+                            "type": [
+                                "boolean",
+                                "null"
+                            ]
+                        },
+                        "utm_params": {
+                            "items": {
+                                "properties": {
+                                    "name": {
+                                        "description": "Name of the UTM param",
+                                        "type": [
+                                            "string",
+                                            "null"
+                                        ]
+                                    },
+                                    "value": {
+                                        "description": "Value of the UTM param. Can be templated data.",
+                                        "type": [
+                                            "string",
+                                            "null"
+                                        ]
+                                    }
+                                },
+                                "type": [
+                                    "object",
+                                    "null"
+                                ]
+                            },
+                            "type": [
+                                "array",
+                                "null"
+                            ]
+                        },
+                        "is_tracking_clicks": {
+                            "type": [
+                                "boolean",
+                                "null"
+                            ]
+                        },
+                        "is_tracking_opens": {
+                            "type": [
+                                "boolean",
+                                "null"
+                            ]
+                        }
+                    },
+                    "type": [
+                        "object",
+                        "null"
+                    ]
+                },
+                "send_strategy": {
+                    "properties": {
+                        "method": {
+                            "type": [
+                                "string",
+                                "null"
+                            ]
+                        },
+                        "options_static": {
+                            "properties": {
+                                "datetime": {
+                                    "format": "date-time",
+                                    "type": [
+                                        "string",
+                                        "null"
+                                    ]
+                                },
+                                "is_local": {
+                                    "type": [
+                                        "boolean",
+                                        "null"
+                                    ]
+                                },
+                                "send_past_recipients_immediately": {
+                                    "type": [
+                                        "boolean",
+                                        "null"
+                                    ]
+                                }
+                            },
+                            "type": [
+                                "object",
+                                "null"
+                            ]
+                        },
+                        "options_throttled": {
+                            "properties": {
+                                "datetime": {
+                                    "format": "date-time",
+                                    "type": [
+                                        "string",
+                                        "null"
+                                    ]
+                                },
+                                "throttle_percentage": {
+                                    "type": [
+                                        "integer",
+                                        "null"
+                                    ]
+                                }
+                            },
+                            "type": [
+                                "object",
+                                "null"
+                            ]
+                        },
+                        "options_sto": {
+                            "properties": {
+                                "date": {
+                                    "type": [
+                                        "string",
+                                        "null"
+                                    ]
+                                }
+                            },
+                            "type": [
+                                "object",
+                                "null"
+                            ]
+                        }
+                    },
+                    "type": [
+                        "object",
                         "null"
                     ]
                 },
@@ -130,6 +275,18 @@
             },
             "type": [
                 "object",
+                "null"
+            ]
+        },
+        "campaign_messages": {
+            "items": {
+                "type": [
+                    "string",
+                    "null"
+                ]
+            },
+            "type": [
+                "array",
                 "null"
             ]
         }
