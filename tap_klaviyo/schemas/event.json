@@ -78,6 +78,178 @@
                 "object",
                 "null"
             ]
+        },
+        "links": {
+            "type": [
+                "object",
+                "null"
+            ],
+            "properties": {
+                "self": {
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                }
+            }
+        },
+        "relationships": {
+            "type": [
+                "object",
+                "null"
+            ],
+            "properties": {
+                "profile": {
+                    "type": [
+                        "object",
+                        "null"
+                    ],
+                    "properties": {
+                        "data": {
+                            "type": [
+                                "object",
+                                "null"
+                            ],
+                            "properties": {
+                                "type": {
+                                    "type": [
+                                        "string",
+                                        "null"
+                                    ]
+                                },
+                                "id": {
+                                    "type": [
+                                        "string",
+                                        "null"
+                                    ]
+                                }
+                            }
+                        },
+                        "links": {
+                            "type": [
+                                "object",
+                                "null"
+                            ],
+                            "properties": {
+                                "self": {
+                                    "type": [
+                                        "string",
+                                        "null"
+                                    ]
+                                },
+                                "related": {
+                                    "type": [
+                                        "string",
+                                        "null"
+                                    ]
+                                }
+                            }
+                        }
+                    }
+                },
+                "metrics": {
+                    "type": [
+                        "object",
+                        "null"
+                    ],
+                    "properties": {
+                        "data": {
+                            "type": [
+                                "object",
+                                "null"
+                            ],
+                            "properties": {
+                                "type": {
+                                    "type": [
+                                        "string",
+                                        "null"
+                                    ]
+                                },
+                                "id": {
+                                    "type": [
+                                        "string",
+                                        "null"
+                                    ]
+                                }
+                            }
+                        },
+                        "links": {
+                            "type": [
+                                "object",
+                                "null"
+                            ],
+                            "properties": {
+                                "self": {
+                                    "type": [
+                                        "string",
+                                        "null"
+                                    ]
+                                },
+                                "related": {
+                                    "type": [
+                                        "string",
+                                        "null"
+                                    ]
+                                }
+                            }
+                        }
+                    }
+                },
+                "attributions": {
+                    "type": [
+                        "object",
+                        "null"
+                    ],
+                    "properties": {
+                        "data": {
+                            "type": [
+                                "array",
+                                "null"
+                            ],
+                            "items": {
+                                "properties": {
+                                    "type": {
+                                        "type": [
+                                            "string",
+                                            "null"
+                                        ]
+                                    },
+                                    "id": {
+                                        "type": [
+                                            "string",
+                                            "null"
+                                        ]
+                                    }
+                                },
+                                "type": [
+                                    "object",
+                                    "null"
+                                ]
+                            }
+                        },
+                        "links": {
+                            "type": [
+                                "object",
+                                "null"
+                            ],
+                            "properties": {
+                                "self": {
+                                    "type": [
+                                        "string",
+                                        "null"
+                                    ]
+                                },
+                                "related": {
+                                    "type": [
+                                        "string",
+                                        "null"
+                                    ]
+                                }
+                            }
+                        }
+                    }
+                }
+            }
         }
     }
 }
