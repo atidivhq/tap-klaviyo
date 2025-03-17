@@ -1,4 +1,5 @@
 """Module providing a main method to orchestrate klaviyo data ingestion."""
+
 import argparse
 import json
 import os
@@ -50,7 +51,7 @@ def main():
     conf = {
         "auth_token": api_key,
         "flattening_enabled": False,
-        "revision": "2023-10-15",
+        "revision": "2025-01-25",
         "start_date": args.start_date,
     }
 
